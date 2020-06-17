@@ -14,6 +14,7 @@ import com.care.service.TicketServiceImpl;
 @Controller
 public class HomeController {
 	private TicketService ts;
+	
 	@RequestMapping("/buy_ticket")
 	public String buy_ticket() {
 		return "buy_ticket";
@@ -24,7 +25,7 @@ public class HomeController {
 		ts = new TicketServiceImpl();
 		model.addAttribute("dto",dto);
 		ts.execute(model);
-		return "buy_ticket_card";
+		return "buy_ticket_end";
 	}
 	
 }

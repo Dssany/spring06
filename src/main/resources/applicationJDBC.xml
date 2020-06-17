@@ -11,6 +11,8 @@
 <bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
 	<property name="dataSource" ref="dataSource" />
 </bean>
-
+<bean id="dao" class="com.care.dao.TicketDAO">
+	<constructor-arg ref="template"/>
+</bean>
 
 </beans>
