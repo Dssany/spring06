@@ -1,5 +1,11 @@
 package com.care.dao;
 
-public class TicketDAO {
+import org.springframework.jdbc.core.JdbcTemplate;
 
+public class TicketDAO {
+	private JdbcTemplate template;
+	
+	public TicketDAO(JdbcTemplate template) {
+		this.template = template;
+	}
 }

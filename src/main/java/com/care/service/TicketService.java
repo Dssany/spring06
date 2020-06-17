@@ -1,5 +1,7 @@
 package com.care.service;
 
-public interface TicketService {
+import org.springframework.ui.Model;
 
+public interface TicketService {
+	public void execute(Model model);
 }
