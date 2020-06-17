@@ -1,5 +1,10 @@
 package com.care.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.care.dto.TicketDTO;
@@ -30,4 +35,29 @@ public class TicketDAO {
 		return arr;
 		
 	}
+	
+	
+	public Map<String, ArrayList> resultTicket(){
+	      String sql_user = "select * from userticket";
+	      String sql_system = "select * from systemticket";
+	      Map<String, ArrayList> map = 
+	               new HashMap<String, ArrayList>();
+	      ArrayList<TicketDTO> userticket = null;
+	      ArrayList<TicketDTO> systemticket = null;
+	      userticket = 
+	      (ArrayList<TicketDTO>)template.query(sql_user,
+	      new BeanPropertyRowMapper<TicketDTO>(TicketDTO.class));
+	      
+	      systemticket = 
+	      (ArrayList<TicketDTO>)template.query(sql_system,
+	      new BeanPropertyRowMapper<TicketDTO>(TicketDTO.class));
+	      
+	      map.put("userticket", userticket);
+	      map.put("systemticket", systemticket);
+	      
+	      return map;
+	   }
+	
+	
+	
 }

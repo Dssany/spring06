@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.care.dto.TicketDTO;
+import com.care.service.TicketResultServiceImpl;
 import com.care.service.TicketService;
 import com.care.service.TicketServiceImpl;
 
@@ -28,4 +29,12 @@ public class HomeController {
 		return "buy_ticket_end";
 	}
 	
+	
+	
+	@RequestMapping("result")
+	public String result(Model model) {
+		ts = new TicketResultServiceImpl();
+		ts.execute(model);
+		return "result_ticket";
+	}
 }
